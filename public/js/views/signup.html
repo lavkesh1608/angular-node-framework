@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wizard</title>
+        <!-- CSS Files----------------------------------- -->
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/demo.css" rel="stylesheet">
+        <link href="css/stepsForm.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,700italic,600italic,400italic,300italic,300,800italic' rel='stylesheet' type='text/css'>
+
+        <!--<link href="css/bootstrap.css" rel="stylesheet" />-->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+    </head>
+    <body ng-controller="LoginCtrl">
+
+        <div class="header PD5 MB3">
+            <h1><a href="#"> <img src="images/logo.png" alt="FreshMetrics" title="FreshMetrics"> </a></h1>
+        </div>
+
+        <div class="login-form" ng-show="!showStepTwo">
+            <div class="container-top">
+                Create Your Account
+            </div>
+
+            <!--STEPS FORM START ------------ -->
+            <div class="stepsForm">
+                <div class="sf-steps">
+                    <div class="sf-steps-content" style="float: left;">
+                        <div>
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="sf-steps-content" style="float: right;">
+                        <div>
+                            <span>2</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="col-lg-12">
+                    <!-- form step one -->
+                    <div class="col-lg-6" style="margin-top:20px;">
+
+                        <form>
+
+                            <label></label>
+                            <input type="text" ng-model="full_name" data-required="true" class="form-control" placeholder="Full Name" required="required">
+                            <label></label>
+                            <input type="email" style="width: 100%" ng-model="email_address" data-required="true" class="form-control" placeholder="Email Address" required="required">
+                            <label></label>
+                            <input type="password" data-required="true" ng-model="password" class="form-control" placeholder="Password" required="required">
+                            <label></label>
+                            <button id="sf-next" ng-click="nextStepSignUp()" type="submit" class="btn btn-danger" style="width:100%">
+                                Next Step
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="demotext">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                            aliquam erat volutpat. Ut wisi enim ad minim veniam
+                        </p>
+                        <img src="images/usericon.png" style="float: left; margin-right: 20px;">
+                        <p style="font-size: 17px; line-height: 66px; font-weight:bold">
+                            Joe Customer
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="sf-steps-navigation sf-align-right" style="Padding-bottom:20px">
+                Already have an account?
+                <a href="#/login" class="login">Log in</a>
+            </div>
+            </form>
+        </div>
+        <!--STEPS FORM END -------------- -->
+        <div class="login-form" ng-show="showStepTwo">
+            <div class="container-top">
+                Payment Information
+            </div>
+
+            <!--STEPS FORM START ------------ -->
+            <div class="stepsForm">
+
+                <div class="sf-steps">
+                    <div class="sf-steps-content" style="float: left;">
+                        <div>
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="sf-steps-content" style="float: right;">
+                        <div>
+                            <span>2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear: both;"></div>
+                <div class="col-lg-12">
+                    <form>
+
+                        <div class="col-lg-6" style="margin-top: 20px;">
+                            <!-- form step one -->
+
+                            <div>
+                                Credit Card Number
+                                <br>
+                                <br>
+                                <input type="text" ng-model="cnum" name="cardnumber" id="ccnum" data-required="true" class="form-control" required>
+                                <br>
+
+                                <span style="width: 48%; float: left;">Expiration Date
+                                    <br>
+                                    <br>
+                                    <input ng-model="cexpiry" placeholder="-- / --" size="7" type="text" class="form-control" name="expiry" value="" id="expiry" required>
+                                </span>
+
+                                <span style="width: 48%; float: left; margin-left: 4%;">Password
+                                    <br>
+                                    <br>
+                                    <input type="text" ng-model="ccode" name="email" data-required="true" class="form-control" required>
+                                </span>
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 demoimg">
+
+                            <img src="images/guaranted.png" />
+
+                        </div>
+                        <div class="col-lg-12">
+
+                            <button id="sf-next" ng-click="signUp()" type="submit" class="btn btn-danger" style="margin-top: 20px; width:100%">
+
+                                Start Tracking My Metrics
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+                <p>
+                    <label class="text-center custom-label"> <img src="images/lock_icon.png" /><span class="label-green"> Secure Credit Card Payment</span> This is the secure 128-bit SSL encrypeted payment
+                        if for any reason you are not copletely happy with our service we
+                        will refund 1005 of your manthly fee. </label>
+                </p>
+
+                <div class="clearfix"></div>
+                <div class="sf-steps-navigation sf-align-right" style="margin-top: 20px; padding-bottom: 20px">
+                    Already have an account?
+                    <a href="#/login" class="login">Log in</a>
+                </div>
+
+            </div>
+            <!--STEPS FORM END -------------- -->
+
+        </div>
+        <div class="copyrights">
+            <p>
+                I agree to FreshMetrics'
+                <a href="#"><u>Terms of Service</u></a> and <a href="#"><u>Privacy Policy</u></a>.
+                <br />
+                <a href="#"><u>Get help from our support team</u></a>
+            </p>
+            <p class="copyright">
+                &copy; 2015 FreshMetrics LLC
+            </p>
+        </div>
+
+    </body>
+
+</html>
+

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html ng-app="freshmetric">
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="" />
+
+        <link href="lib/BaremetricsCalendar/public/css/application.css" />
+
+        <!--webfonts-->
+        <link href='fonts/google-fonts.css' rel='stylesheet' type='text/css'>
+        <!--//webfonts-->
+
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+        <link href="css/animate.css" />
+        <link href="fonts/bootstrap.css" />
+        <script src="lib/jquery-1.8.3.min.js"></script>
+
+        <!--  Angular Libs-->
+
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular/angular-ui-router.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-animate.js"></script>
+        <script src="lib/angular/angular-modal-service.js"></script>
+
+        <script src="lib/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+        <!--Angular Cookie-->
+        <script src="lib/angular/angular-ipcookie/angular-cookie.js"></script>
+        <script src="lib/moment_js/moment.js"></script>
+
+        <!-- Bare Metric Calendar Start                                    --->
+
+        <script src="lib/BaremetricsCalendar/public/js/vendor/underscore.js"></script>
+        <script src="lib/BaremetricsCalendar/public/js/vendor/moment.js"></script>
+        <script src="lib/BaremetricsCalendar/public/js/Calendar.js"></script>
+
+        <!-- Bare Metric Calendar End                                    --->
+
+        <!-- toaster  -->
+        <link href="lib/angular/angularjs-toaster/toaster.min.css" rel="stylesheet" />
+        <script src="lib/angular/angularjs-toaster/toaster.min.js"></script>
+        <script src="lib/angular/file-upload/angular-file-upload.js"></script>
+
+        <!-- App.js, controller and Services  -->
+        <script src="js/app.js"></script>
+        <script src="js/controller/loginCtrl.js"></script>
+        <script src="js/vendor/calendar.js"></script>
+        <script src="js/controller/dashboardCtrl.js"></script>
+        <script src="js/controller/profileCtrl.js"></script>
+        <script src="js/services/model.js"></script>
+        <link href="css/jquery.videocontrols.css" rel="stylesheet" />
+        <script src="lib/jquery.videocontrols.js"></script>
+
+        <script type="text/javascript">
+			$('video').videocontrols();
+        </script>
+
+        <script>
+			(function() {
+				var w = window;
+				var ic = w.Intercom;
+				if ( typeof ic === "function") {
+					ic('reattach_activator');
+					ic('update', intercomSettings);
+				} else {
+					var d = document;
+					var i = function() {
+						i.c(arguments)
+					};
+					i.q = [];
+					i.c = function(args) {
+						i.q.push(args)
+					};
+					w.Intercom = i;
+					function l() {
+						var s = d.createElement('script');
+						s.type = 'text/javascript';
+						s.async = true;
+						s.src = 'https://widget.intercom.io/widget/gc6ggb59';
+						var x = d.getElementsByTagName('script')[0];
+						x.parentNode.insertBefore(s, x);
+					}
+
+					if (w.attachEvent) {
+						w.attachEvent('onload', l);
+					} else {
+						w.addEventListener('load', l, false);
+					}
+				}
+			})()
+        </script>
+
+    </head>
+    <body ng-controller="AppCtrl">
+
+        <div data-ui-view></div>
+        <!--<div ng-view></div>-->
+
+    </body>
+
+    <toaster-container toaster-options="{
+    'closeButton': false,
+    'debug' : false,
+    'positionClass': 'toast-top-right',
+    'onclick': null,
+    'showDuration': '200',
+    'hideDuration': '1000',
+    'timeOut': '5000',
+    'extendedTimeOut': '1000',
+    'showEasing': 'swing',
+    'hideEasing': 'linear',
+    'showMethod': 'fadeIn',
+    'hideMethod': 'fadeOut'
+    }"></toaster-container>
+
+    <!--  <script src="js/bootstrap.min.js"></script>-->
+    <script src="lib/bootstrap-datetimepicker.min.js"></script>
+    <script src="lib/bootstrap-datetimepicker.fr.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="lib/payform/dist/jquery.payform.min.js"></script>
+    <script src="lib/payform/dist/payform.min.js"></script>
+    <script>
+		// Format input for card number entry
+
+		$("body").on('focus', '#ccnum', function() {
+
+			payform.cardNumberInput(this)
+
+		});
+
+		/*
+		 $("body").on('click', '#ccnum', function() {
+
+		 payform.cardNumberInput(this)
+
+		 //=> true
+
+		 });*/
+
+		$("body").on('blur', '#expiry', function() {
+
+			//payform.cardNumberInput(this)
+
+			var expiryObj = payform.parseCardExpiry(this.value);
+
+			if (payform.validateCardExpiry(expiryObj)) {
+
+				$(this).css("border-color", "");
+
+			} else {
+				$(this).css('border-color', 'red');
+				$(this).focus();
+			}
+			//=> true
+
+		});
+
+		$("body").on('focus', '#expiry', function() {
+
+			payform.expiryInput(this);
+
+			//=> true
+
+		});
+
+		/*
+		 $("body").on('change', '#ccnum', function() {
+
+		 // Validate a credit card number
+		 if (payform.validateCardNumber(this.value)) {
+		 alert()
+
+		 $(this).blur();
+		 $(this).css('border-color', '');
+
+		 } else {
+
+		 $(this).css('border-color', 'red');
+		 $(this).focus();
+		 }
+
+		 })
+		 */
+
+		$("body").on('blur', '#ccnum', function() {
+
+			// Validate a credit card number
+			if (payform.validateCardNumber(this.value)) {
+
+				$(this).css("border-color", "");
+
+			} else {
+
+				$(this).css('border-color', 'red');
+				$(this).focus();
+			}
+
+		})
+		//	payform.validateCardExpiry(month, year)
+		// Get card type from number
+		//alert(payform.parseCardType('4242 4242 4242 4242'))
+
+		//=> 'visa'
+    </script>
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$('#myVideo_demo').videocontrols({
+				markers : [40, 84, 158, 194, 236, 272, 317, 344, 397, 447, 490, 580],
+				preview : {
+					sprites : ['images/big_bunny_108p_preview.jpg'],
+					step : 10,
+					width : 200
+				},
+				theme : {
+					progressbar : 'blue',
+					range : 'pink',
+					volume : 'pink'
+				}
+			});
+		});
+    </script>
+</html>
+<!--/SIGN UP-->

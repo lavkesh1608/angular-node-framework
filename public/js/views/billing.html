@@ -1,0 +1,60 @@
+﻿<div class="main PDBOTTOM">
+
+    <!-- Side bar html -->
+    <div ng-include src="'js/views/common/sidebar.html'"></div>
+
+    <div class="col-lg-9  ">
+        <h3 class="title col-lg-12 "><span class="pull-left">Billing</span></h3>
+        <div class="col-lg-12">
+
+            <div class="col-lg-5">
+                <label></label>
+                <input type="text" data-required="true" class="form-control" placeholder="Cardholder Name">
+                <label></label>
+                <input type="text" data-required="true" class="form-control" placeholder="Card Number">
+
+                <label></label>
+                <span style="float:left; width:25%; margin-right:3%;">
+                    <input type="text" data-required="true" class="form-control width" placeholder="MM">
+                </span>
+                <span style="float:left; width:25%;">
+                    <input type="text" data-required="true" class="form-control" placeholder="YY">
+                </span>
+                <span style="float:right; width:30%;">
+                    <input type="text" data-required="true" class="form-control" placeholder="CVC">
+                </span>
+            </div>
+
+            <div class="col-lg-7">
+                <label></label>
+                <input type="text" data-required="true" class="form-control" placeholder="Billing Address">
+                <label></label>
+                <span style="float:left; width:35%;  margin-right:3%;">
+                    <input type="text" data-required="true" class="form-control width" placeholder="City">
+                </span>
+                <span style="float:left; width:35%;  margin-right:3%;">
+                    <select name="select" class="form-control">
+                        <option>State</option>
+                    </select></span>
+                <span style="float:right; width:24%;">
+                    <input type="text" data-required="true" class="form-control" placeholder="Postal Code">
+                </span>
+
+                <label></label>
+                <span style="float:left; width:35%;">
+                    <select name="select" class="form-control">
+                        <option>Country</option>
+                    </select></span>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12" style="text-align:right; margin-top:30px">
+            <button type="button" class="btn btn-danger">
+                Save and Update
+            </button>
+        </div>
+    </div>
+
+</div>
+

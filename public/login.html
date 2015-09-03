@@ -1,0 +1,51 @@
+<div class=" background">
+    <!--SIGN UP-->
+    <div class="header PD5 MB3">
+        <h1><a href="#"> <img src="images/logo.png" alt="FreshMetrics" title="FreshMetrics"> </a></h1>
+    </div>
+    <div class="login-form">
+
+        <div class="bottom-form">
+            <div class="form-top">
+                <form>
+                    <div class="user">
+                        <input type="text" ng-model="email_address" placeholder="Email Address" value="Email Address"  required>
+                        <i></i>
+                    </div>
+                    <div class="user-in">
+                        <input type="password" placeholder="Password"  ng-model="password" required>
+                        <i><a href="#/forgot">forgot</a></i>
+                    </div>
+                    <div class="">
+                        <div class="checkbox col-lg-6" style="font-size: large;
+                        line-height: 100%;">
+                            <input  type="checkbox" ng-model="keep_logged" name="checkbox" >
+                            <i> </i>Keep me signed in
+                        </div>
+                        <div class="keep-loginbutton">
+                            <input type="submit" value="Log in" ng-click="login()" />
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <p class="forgot">
+                        <a class="pull-left" href="#/signup">Signup</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="copyrights">
+        <p>
+            I agree to FreshMetrics'
+            <a href="#"><u>Terms of Service</u></a> and <a href="#"><u>Privacy Policy</u></a>.
+            <br />
+            <a href="#"><u>Get help from our support team</u></a>
+        </p>
+        <p class="copyright">
+            &copy; 2015 FreshMetrics LLC
+        </p>
+    </div>
+</div>
+
